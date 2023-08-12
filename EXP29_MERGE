@@ -1,0 +1,67 @@
+#include<stdio.h>
+int merge(int ar[10],int a,int b,int c)
+{
+	int n1,n2,l[10],r[10],i,j,k=0,l1=0,r1=0;
+	for(i=a;i<=b;i++){
+	l[l1]=ar[i];
+	l1++;
+}
+	for(i=b+1;i<=c;i++){
+	r[r1]=ar[i];
+	r1++;
+}
+i=0;
+j=0;
+while(i!=l1 && j!=r1)
+{
+	if(l[i]<=r[j]){
+		ar[k]=l[i];
+		i++;
+	}
+	else if(l[i]>r[i])
+	{
+	ar[k]=r[j];
+	j++;
+}
+	k++;
+}
+while(i<l1)
+{
+	ar[k]=l[i];
+	i++;
+	k++;
+}
+while(j<r1)
+{
+	ar[k]=r[j];
+	j++;
+	k++;
+	
+}
+}
+int mergesort(int ar[10],int b,int c)
+{
+	int i;
+	if(b<c)
+	{
+		int m=(b+c)/2;
+		mergesort(ar,b,m);
+		mergesort(ar,m+1,c);
+		merge(ar,b,m,c);
+	}
+}
+int main()
+{
+	int n,a[10],i,j,tmp=0;
+	printf("\nenter the no of elements : ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		printf("\nenter the num %d : ",i+1);
+		scanf("%d",&a[i]);
+	}
+	mergesort(a,0,n-1);
+	for(i=0;i<n;i++)
+	printf("\n%d",a[i]);
+}
+	
