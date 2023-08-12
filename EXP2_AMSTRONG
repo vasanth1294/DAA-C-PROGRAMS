@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	int n1,n,s=0,r;
+	printf("enter the number:");
+	scanf("%d",&n);
+	n1=n;
+	while(n1!=0){
+		r=n1%10;
+		s=s+(r*r*r);
+		n1=n1/10;
+	}
+	if(s==n)
+	{
+		printf("\namstrong");
+	}
+	else
+	{
+		printf("\nnot amstrong");
+	}
+}
