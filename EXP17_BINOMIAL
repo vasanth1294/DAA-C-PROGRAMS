@@ -1,0 +1,25 @@
+#include<stdio.h>
+int bin(int n1,int n2)
+{
+	int res;
+	if(n2==0 || n1==n2)
+	{
+		res=1;
+	}
+	else
+	{
+		res=bin(n1-1,n2-1)+bin(n1-1,n2);
+	}
+	return res;
+}
+int main()
+{
+	int n1,n2,res;
+	printf("enter the num1:");
+	scanf("%d",&n1);
+	printf("enter the num2:");
+	scanf("%d",&n2);
+	res=bin(n1,n2);
+	printf("%d",res);
+	
+}
