@@ -1,0 +1,39 @@
+#include<stdio.h>
+int binary(int a[],int left,int right,int search)
+{
+	int mid;
+	while(left<=right){
+		mid=left+(right-left)/2;
+		
+		if(a[mid]==search){
+			return mid;
+		}
+		else if(a[mid]<search){
+			left=mid+1;
+		}
+		else{
+			right=mid-1;
+		}
+	}
+	return -1;
+}
+int main()
+{
+	int i,n,s,a[100],index;
+	printf("enter the no of elements:");
+	scanf("%d",&n);
+	printf("enter the search element:");
+	scanf("%d",&s);
+	for(i=0;i<n;i++){
+		scanf("%d",&a[i]);
+	}
+	index=binary(a,0,n-1,s);
+	
+	if(index==-1){
+		printf("\nelement not found:");
+	}
+	else
+	{
+		printf("\nat index %d",index);
+	}
+}
