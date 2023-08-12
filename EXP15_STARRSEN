@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,r,c,a[10][10],b[10][10],c1[10][10];
+	int m1,m2,m3,m4,m5,m6,m7;
+	printf("enter the row:");
+	scanf("%d",&r);
+	printf("enter the column:");
+	scanf("%d",&c);
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++){
+			scanf("%d",&a[i][j]);
+		}
+	}
+	printf("\n*******************\n");
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++){
+			printf("%d\t",a[i][j]);
+		}
+		printf("\n");
+	}
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++){
+			scanf("%d",&b[i][j]);
+		}
+	}
+	printf("\n*******************\n");
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++){
+			printf("%d\t",b[i][j]);
+		}
+		printf("\n");
+	}
+	m1=(a[0][0]+a[1][1])*(b[0][0]+b[1][1]);
+	m2=(a[1][0]+a[1][1])*b[0][0];
+	m3=a[0][0]*(b[0][1]-b[1][1]);
+	m4=a[1][1]*(b[1][0]-b[0][0]);
+	m5=(a[0][0]+a[0][1])*b[1][1];
+	m6=(a[1][0]-a[0][0])*(b[0][0]+b[0][1]);
+	m7=(a[0][1]-a[1][1])*(b[1][0]+b[1][1]);
+	
+	
+	c1[0][0]=m1+m4-m5+m7;
+	c1[0][1]=m3+m5;
+	c1[1][0]=m2+m4;
+	c1[1][1]= m1+m3-m2+m6;
+	
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++){
+			printf("%d\t",c1[i][j]);
+		}
+		printf("\n");
+	}
+}
