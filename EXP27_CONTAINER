@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,n,a[100],tot,temp;
+	printf("enter the no of containers:");
+	scanf("%d",&n);
+	printf("enter the tot capacity:");
+	scanf("%d",&tot);
+	for(i=0;i<n;i++){
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<n;i++){
+		temp=0;
+		for(j=i+1;j<n;j++){
+			if(a[i]>a[j]){
+			temp=a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			}
+		}
+	}
+	for(i=0;i<n;i++){
+		if(tot>a[i]){
+			tot=tot-a[i];
+			printf("\ncontainer %d is loaded:",i+1);
+		}
+		else{
+			break;
+		}
+	}
+	printf("\n%d",tot);
+}
